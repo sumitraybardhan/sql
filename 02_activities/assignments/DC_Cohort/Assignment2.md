@@ -54,7 +54,8 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 slowly changing dimensions are when variables are updated and overwrite the old value, type 2 changes are more complex as they keep the old versioning history of the variable values after the update (see https://anilkumarvalluru.medium.com/different-types-of-slowly-changing-dimensions-scd-eb83da61cb73).
+For the above example - the type 1 solution I would create a new table called CUSTOMER_ADDRESS and it would have a one to one relationship with customer_id and the CUSTOMER table. For the type 2 solution, I would create another table called CUSTOMER_ADDRESS_T2 and it would have a one to many on customer_id between CUSTOMER_ADDRESS and CUSTOMER_ADDRESS_T2. The CUSTOMER_ADDRESS_T2 would have three additional variables including start_date and end_date and a binary variable of is_current. 
 ```
 
 ***
@@ -183,5 +184,6 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Boykis’s essay argues that “neural nets are just people all the way down”, highlighting that modern AI systems including LLMs rest on human choices and labor: curated datasets, hand-built labels,  and benchmark definitions. These upstream human judgments shape what models learn and how they behave. The essay reminds me of a book I read just prior to starting my PhD by  Cathy O’Neil called 'Weapons of Math Destruction', which shows how high-impact algorithmic models— such as credit scoring, hiring screens, teacher ratings, and risk assessments—can encode human judgement and then scale it. However, when these judgements reflect historical inequities or prioritize efficiency over fairness, the resulting systems can systematically disadvantage vulnerable groups under the guise of an objective 'machine intelligence'. 
+I think both Boykis' essay and O'Neil's book argue for a more transparent, auditable, and regulatory framework to prevent automated harm. I think that means treating datasets and labels as policy decisions, not technical requirements. Furthermore stress-testing models for error distributions across groups should be an important evaulation step; and enabling independent audits with meaningful access to data, code, and evaluation processes. It also important to have governance frameworks that provide clear disclosure when automated systems are used, as well as mechanisms for affected individuals to address any errors , and regulatory standards proportionate to the use-case of the model being deployed. 
 ```
